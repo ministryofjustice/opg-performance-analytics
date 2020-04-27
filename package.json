@@ -1,0 +1,50 @@
+{
+  "name": "opg-performance-analytics",
+  "version": "0.0.1",
+  "description": "Performance Analytics plugin for usage with Google Analytics",
+  "main": "index.js",
+  "author": "John Nolan <john.nolan@digital.justice.gov.uk>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "eslint:check": "eslint src/**/*.js",
+    "prettier:staged": "pretty-quick — staged",
+    "prettier:check": "prettier --check src/**/*.js",
+    "prettier:fix": "prettier --write src/**/*.js",
+    "test": "jest",
+    "test:staged": "CI=true jest --findRelatedTests src/**/*.js",
+    "test:coverage": "CI=true jest --coverage src/**/*.js"
+  },
+  "devDependencies": {
+    "commitizen": "^4.0.4",
+    "cz-conventional-changelog": "^3.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "husky": "^4.2.5",
+    "jest": "^25.4.0",
+    "lint-staged": "^10.1.7",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "yarn eslint:check",
+      "yarn prettier:staged",
+      "yarn test:staged"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
