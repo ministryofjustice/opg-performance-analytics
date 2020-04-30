@@ -2,7 +2,7 @@
   "name": "opg-performance-analytics",
   "version": "0.0.1",
   "description": "Performance Analytics plugin for usage with Google Analytics",
-  "main": "index.js",
+  "main": "src/performanceAnalytics.js",
   "author": "John Nolan <john.nolan@digital.justice.gov.uk>",
   "license": "MIT",
   "private": false,
@@ -16,6 +16,9 @@
     "test:coverage": "CI=true jest --coverage src/**/*.js"
   },
   "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "babel-jest": "^25.5.1",
     "commitizen": "^4.0.4",
     "cz-conventional-changelog": "^3.1.0",
     "eslint": "^6.8.0",
@@ -46,5 +49,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "perfume.js": "^5.0.0-rc.15"
   }
 }
