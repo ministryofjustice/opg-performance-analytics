@@ -15,6 +15,7 @@
     "prettier:check": "prettier --check src/**/*.js",
     "prettier:fix": "prettier --write src/**/*.js",
     "test": "jest",
+    "test:watch": "jest --watch",
     "test:staged": "CI=true jest --findRelatedTests src/**/*.js",
     "test:coverage": "CI=true jest --coverage src/**/*.js"
   },

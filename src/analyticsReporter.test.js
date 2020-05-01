@@ -27,8 +27,10 @@ describe("When a metric is to be logged", () => {
 });
 describe("When a metric is to be tracked", () => {
   test("it should track the metric to google analytics", () => {
+    global.gtag = jest.fn();
+
     track(options.metricName, options.data);
-    expect(track).toBeDefined();
-    // TODO: Add tests for GA Implementation
+    expect(global.gtag).toBeCalled();
+    expect(global.gtag).toHaveBeenCalledTimes(1);
   });
 });
