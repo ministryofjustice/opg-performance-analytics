@@ -1,0 +1,67 @@
+version: 2.1
+jobs:
+  build:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:12.9.1
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+  test:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:12.9.1
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run:
+          name: Unit Tests
+          command: yarn ci:test
+      - run:
+          name: Unit Test Coverage
+          command: yarn ci:coverage
+      - run:
+          name: ESLint
+          command: yarn eslint:check
+      - run:
+          name: Prettier
+          command: yarn prettier:check
+  publish:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:12.9.1
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run:
+          name: Tag and Publish Version
+          command: yarn ci:release
+
+workflows:
+  version: 2.1
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      - publish:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master

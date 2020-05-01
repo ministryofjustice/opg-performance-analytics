@@ -33,7 +33,10 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:staged": "CI=true jest --findRelatedTests src/**/*.js",
-    "test:coverage": "CI=true jest --coverage src/**/*.js"
+    "test:coverage": "CI=true jest --coverage src/**/*.js",
+    "ci:coverage": "CI=true jest --coverage src/**/*.js",
+    "ci:test": "CI=true jest",
+    "ci:release": "HUSKY_SKIP_HOOKS=1 CI=true emantic-release"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
