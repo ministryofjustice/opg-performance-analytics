@@ -7,6 +7,9 @@
   "license": "MIT",
   "private": false,
   "scripts": {
+    "build": "webpack",
+    "build:babel": "babel ./src -d ./lib --ignore \"src/**/*.test.js\"",
+    "build:watch": "babel ./src -w -d ./lib",
     "eslint:check": "eslint src/**/*.js",
     "prettier:staged": "pretty-quick — staged",
     "prettier:check": "prettier --check src/**/*.js",
@@ -16,6 +19,7 @@
     "test:coverage": "CI=true jest --coverage src/**/*.js"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "babel-jest": "^25.5.1",
@@ -30,7 +34,9 @@
     "jest": "^25.4.0",
     "lint-staged": "^10.1.7",
     "prettier": "^2.0.5",
-    "pretty-quick": "^2.0.1"
+    "pretty-quick": "^2.0.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   },
   "husky": {
     "hooks": {
