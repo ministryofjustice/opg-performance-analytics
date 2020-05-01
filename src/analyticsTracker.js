@@ -5,7 +5,12 @@ function AnalyticsTracker(options, debug = false) {
   if (debug) {
     log(metricName, data);
   } else {
-    track(metricName, data);
+    const analyticsOptions = {
+      name: metricName,
+      value: data,
+      event_category: "rum",
+    };
+    track("timing_complete", analyticsOptions);
   }
 }
 

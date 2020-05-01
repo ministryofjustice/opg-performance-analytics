@@ -26,11 +26,29 @@ describe("When a metric is to be logged", () => {
   });
 });
 describe("When a metric is to be tracked", () => {
-  test("it should track the metric to google analytics", () => {
+  beforeEach(() => {
     global.gtag = jest.fn();
+    track("timing_complete", {
+      name: options.metricName,
+      value: options.data,
+      event_category: "rum",
+    });
+  });
 
-    track(options.metricName, options.data);
+  test("it should track the metric to google analytics", () => {
     expect(global.gtag).toBeCalled();
     expect(global.gtag).toHaveBeenCalledTimes(1);
+  });
+
+  test("it should call the track method with the correct parameters", () => {
+    expect(global.gtag).toBeCalledWith("event", "timing_complete", {
+      name: options.metricName,
+      value: options.data,
+      event_category: "rum",
+    });
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 });

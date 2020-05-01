@@ -2,7 +2,7 @@
   "name": "opg-performance-analytics",
   "version": "0.0.1",
   "description": "Performance Analytics plugin for usage with Google Analytics",
-  "main": "src/performanceAnalytics.js",
+  "main": "src/index.js",
   "author": "John Nolan <john.nolan@digital.justice.gov.uk>",
   "license": "MIT",
   "private": false,

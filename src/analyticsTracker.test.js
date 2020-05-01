@@ -24,6 +24,10 @@ describe("When a metric is to be reported on", () => {
       expect(log).toHaveBeenCalledTimes(1);
     });
 
+    test("it should call the track method with the correct parameters", () => {
+      expect(log).toBeCalledWith(options.metricName, options.data);
+    });
+
     test("it should not call the track method", () => {
       expect(track).toHaveBeenCalledTimes(0);
     });
@@ -39,6 +43,14 @@ describe("When a metric is to be reported on", () => {
 
     test("it should not call the log method", () => {
       expect(log).toHaveBeenCalledTimes(0);
+    });
+
+    test("it should call the track method with the correct parameters", () => {
+      expect(track).toBeCalledWith("timing_complete", {
+        name: options.metricName,
+        value: options.data,
+        event_category: "rum",
+      });
     });
   });
 });

@@ -3,13 +3,9 @@ function log(metricLabel, metricValue) {
   console.log(metricLabel, metricValue);
 }
 
-function track(metricLabel, metricValue) {
+function track(metricAction, analyticsOptions) {
   if (window.gtag) {
-    window.gtag("event", "timing_complete", {
-      name: metricLabel,
-      value: metricValue,
-      event_category: "rum",
-    });
+    window.gtag("event", metricAction, analyticsOptions);
   }
 }
 
