@@ -1,9 +1,12 @@
 {
-  "name": "opg-performance-analytics",
+  "name": "@ministryofjustice/opg-performance-analytics",
   "version": "0.0.1",
-  "description": "Performance Analytics plugin for usage with Google Analytics",
+  "description": "Performance Analytics plugin for Google Analytics",
   "main": "src/index.js",
   "author": "John Nolan <john.nolan@digital.justice.gov.uk>",
+  "files": [
+    "/lib"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ministryofjustice/opg-performance-analytics.git"
@@ -24,8 +27,6 @@
   "private": false,
   "scripts": {
     "build": "webpack",
-    "build:babel": "babel ./src -d ./lib --ignore \"src/**/*.test.js\"",
-    "build:watch": "babel ./src -w -d ./lib",
     "eslint:check": "eslint src/**/*.js",
     "prettier:staged": "pretty-quick — staged",
     "prettier:check": "prettier --check src/**/*.js",
@@ -42,16 +43,16 @@
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
-    "babel-jest": "^25.5.1",
-    "commitizen": "^4.0.4",
-    "cz-conventional-changelog": "^3.1.0",
+    "babel-jest": "^26.0.1",
+    "commitizen": "4.1.2",
+    "cz-conventional-changelog": "2.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-prettier": "^3.1.3",
     "husky": "^4.2.5",
-    "jest": "^25.4.0",
+    "jest": "^26.0.1",
     "lint-staged": "^10.1.7",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
