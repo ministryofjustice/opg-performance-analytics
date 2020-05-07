@@ -2,7 +2,7 @@
   "name": "@ministryofjustice/opg-performance-analytics",
   "version": "0.0.1",
   "description": "Performance Analytics plugin for Google Analytics",
-  "main": "src/index.js",
+  "main": "lib/main.js",
   "author": "John Nolan <john.nolan@digital.justice.gov.uk>",
   "files": [
     "/lib"
@@ -10,6 +10,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ministryofjustice/opg-performance-analytics.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "opg",
