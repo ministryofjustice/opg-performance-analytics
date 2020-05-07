@@ -28,15 +28,20 @@ jobs:
       - run:
           name: Unit Tests
           command: yarn ci:test
+          environment:
+            JEST_JUNIT_OUTPUT: "reports/junit/js-test-results.xml"
+      - run:
+          name: ESLint
+          command: yarn ci:eslint
+      - store_test_results:
+          path: reports/junit
+      - store_artifacts:
+          path: reports/junit
       - run:
           name: Unit Test Coverage
           command: yarn ci:coverage
-      - run:
-          name: ESLint
-          command: yarn eslint:check
-      - run:
-          name: Prettier
-          command: yarn prettier:check
+      - store_artifacts:
+          path: coverage
   publish:
     working_directory: ~/repo
     docker:
