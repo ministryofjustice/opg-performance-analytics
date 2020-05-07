@@ -59,3 +59,9 @@ workflows:
       - test:
           requires:
             - build
+      - publish:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
