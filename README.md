@@ -10,11 +10,11 @@
 
 To install via NPM run
 
-`npm install opg-performance-analytics`
+`npm install @ministryofjustice/opg-performance-analytics`
 
 To install via Yarn run
 
-`yarn add opg-performance-analytics`
+`yarn add @ministryofjustice/opg-performance-analytics`
 
 This package allows you to import two different methods of analytics tracking. To import and run them you can use the following code.
 
@@ -22,7 +22,7 @@ This package allows you to import two different methods of analytics tracking. T
 import {
   PerformanceAnalytics,
   ErrorAnalytics,
-} from "opg-performance-analytics";
+} from "@ministryofjustice/opg-performance-analytics";
 
 PerformanceAnalytics();
 ErrorAnalytics();
@@ -87,7 +87,7 @@ Should you wish to test locally on an external application then you can use `npm
 - In your Terminal, navigate to the root of this repo
 - run `yarn link`
 - Now navigate to the project you want to import this into
-- run `yarn add opg-performance-analytics`
+- run `yarn link "@ministryofjustice/opg-performance-analytics"`
 
 You can now access the local package and get instant updates from code changes.
 
