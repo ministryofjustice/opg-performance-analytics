@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/ministryofjustice/opg-performance-analytics/compare/v1.0.2...v1.0.3) (2020-05-07)
+
+
+### Bug Fixes
+
+* **component:** Exports to commonjs2 for usage with import ([899135a](https://github.com/ministryofjustice/opg-performance-analytics/commit/899135ac56fa7cac9a752c37178abc06057bc41f))
+
 ## [1.0.2](https://github.com/ministryofjustice/opg-performance-analytics/compare/v1.0.1...v1.0.2) (2020-05-07)
 
 
