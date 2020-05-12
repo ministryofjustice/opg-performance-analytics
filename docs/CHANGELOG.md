@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/ministryofjustice/opg-performance-analytics/compare/v1.0.3...v1.1.0) (2020-05-12)
+
+
+### Features
+
+* **component:** Added ga tracker option ([205e7b3](https://github.com/ministryofjustice/opg-performance-analytics/commit/205e7b34ce27cbd67136fe80baa06886a996038c))
+* **component:** Split trackers out to enable custom trackers ([b871dc6](https://github.com/ministryofjustice/opg-performance-analytics/commit/b871dc6adaa2a076c9cc2205fb37dde5eb426eb0)), closes [#11](https://github.com/ministryofjustice/opg-performance-analytics/issues/11)
+
 ## [1.0.3](https://github.com/ministryofjustice/opg-performance-analytics/compare/v1.0.2...v1.0.3) (2020-05-07)
 
 
