@@ -1,4 +1,4 @@
-import { track } from "./analyticsReporter";
+import { track } from "./analyticsTrackers/analyticsReporterGTag";
 
 function ErrorAnalytics() {
   if (typeof window.onerror === "object") {

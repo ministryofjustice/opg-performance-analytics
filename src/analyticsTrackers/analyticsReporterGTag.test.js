@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { log, track } from "./analyticsReporter";
+import { log, track } from "./analyticsReporterGTag";
 
 const options = { metricName: "metricOne", data: 1000 };
 

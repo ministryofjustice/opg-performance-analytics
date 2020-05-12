@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
-import AnalyticsTracker from "./analyticsTracker";
-import { log, track } from "./analyticsReporter";
+import AnalyticsTracker from "./analyticsTrackerGTag";
+import { log, track } from "./analyticsReporterGTag";
 
 const options = { metricName: "metricOne", data: 1000 };
 
-jest.mock("./analyticsReporter", () => ({
+jest.mock("./analyticsReporterGTag", () => ({
   log: jest.fn(),
   track: jest.fn(),
 }));

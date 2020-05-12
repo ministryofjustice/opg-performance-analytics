@@ -1,9 +1,12 @@
 import Perfume from "perfume.js";
-import AnalyticsTracker from "./analyticsTracker";
+import { AnalyticsTrackerGTag } from "./analyticsTrackers";
 
-function PerformanceAnalytics(debug = false) {
+function PerformanceAnalytics(analyticsTracker, debug = false) {
   const perfume = new Perfume({
-    analyticsTracker: (options) => AnalyticsTracker(options, debug),
+    analyticsTracker: (options) =>
+      analyticsTracker
+        ? analyticsTracker(options, debug)
+        : AnalyticsTrackerGTag(options, debug),
   });
 
   return perfume;
