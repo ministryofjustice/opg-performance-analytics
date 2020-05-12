@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { log, track } from "./analyticsReporter";
+import { log, track } from "./analyticsReporterGaTag";
 
 const options = { metricName: "metricOne", data: 1000 };
 
@@ -27,24 +27,22 @@ describe("When a metric is to be logged", () => {
 });
 describe("When a metric is to be tracked", () => {
   beforeEach(() => {
-    global.gtag = jest.fn();
-    track("timing_complete", {
-      name: options.metricName,
-      value: options.data,
-      event_category: "rum",
-    });
+    global.ga = jest.fn();
+    track(options.metricName, options.data);
   });
 
   test("it should track the metric to google analytics", () => {
-    expect(global.gtag).toBeCalled();
-    expect(global.gtag).toHaveBeenCalledTimes(1);
+    expect(global.ga).toBeCalled();
+    expect(global.ga).toHaveBeenCalledTimes(1);
   });
 
   test("it should call the track method with the correct parameters", () => {
-    expect(global.gtag).toBeCalledWith("event", "timing_complete", {
-      name: options.metricName,
-      value: options.data,
-      event_category: "rum",
+    expect(global.ga).toBeCalledWith("send", {
+      hitType: "event",
+      eventCategory: "rum",
+      eventLabel: "timing_complete",
+      eventAction: options.metricName,
+      eventValue: options.data,
     });
   });
 

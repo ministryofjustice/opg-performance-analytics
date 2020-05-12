@@ -1,6 +1,6 @@
-import { log, track } from "./analyticsReporter";
+import { log, track } from "./analyticsReporterGTag";
 
-function AnalyticsTracker(options, debug = false) {
+function AnalyticsTrackerGTag(options, debug = false) {
   const { metricName, data } = options;
   if (debug) {
     log(metricName, data);
@@ -14,4 +14,4 @@ function AnalyticsTracker(options, debug = false) {
   }
 }
 
-export default AnalyticsTracker;
+export default AnalyticsTrackerGTag;

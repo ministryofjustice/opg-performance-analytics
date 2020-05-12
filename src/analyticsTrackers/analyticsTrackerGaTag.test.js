@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
-import AnalyticsTracker from "./analyticsTracker";
-import { log, track } from "./analyticsReporter";
+import AnalyticsTracker from "./analyticsTrackerGaTag";
+import { log, track } from "./analyticsReporterGaTag";
 
 const options = { metricName: "metricOne", data: 1000 };
 
-jest.mock("./analyticsReporter", () => ({
+jest.mock("./analyticsReporterGaTag", () => ({
   log: jest.fn(),
   track: jest.fn(),
 }));
@@ -46,11 +46,7 @@ describe("When a metric is to be reported on", () => {
     });
 
     test("it should call the track method with the correct parameters", () => {
-      expect(track).toBeCalledWith("timing_complete", {
-        name: options.metricName,
-        value: options.data,
-        event_category: "rum",
-      });
+      expect(track).toBeCalledWith(options.metricName, options.data);
     });
   });
 });
