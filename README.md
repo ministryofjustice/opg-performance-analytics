@@ -28,6 +28,41 @@ PerformanceAnalytics();
 ErrorAnalytics();
 ```
 
+By default the library will try and push to Google Analytics via an already available gtag on your site. You can pass your own tracker if you wish into the `PerformanceAnalytics` function.
+
+This accepts a function with 2 parameters, `options` and `debug` (set to a default of false). A simple example of a implementation would be the following.
+
+```
+function AnalyticsTrackerExample(options, debug = false) {
+  const { metricName, data } = options;
+  if (debug) {
+    console.log(metricName, data);
+  } else {
+    const analyticsOptions = {
+      name: metricName,
+      value: data,
+      event_category: "rum",
+    };
+    console.log("timing_complete", analyticsOptions);
+  }
+}
+
+export default AnalyticsTrackerExample;
+```
+
+This will simply write each metric to the console. You can add your own implementation as you wish in there.
+
+You can specify a specific reporter by using the following code. This code specifies we should use the classic GA tag instead of the newer gtag implementation. See the `analyticsTracker` folder for more examples you can use.
+
+```
+import {
+  PerformanceAnalytics,
+  AnalyticsTrackers
+} from "@ministryofjustice/opg-performance-analytics";
+
+PerformanceAnalytics(AnalyticsTrackers.AnalyticsTrackerGaTag);
+```
+
 ### PerformanceAnalytics
 
 This will use a great library called [perfume.js](https://www.npmjs.com/package/perfume.js) to collect various performance metrics from the users browser. It then collects and sends this data to your Google Analytics instance.
