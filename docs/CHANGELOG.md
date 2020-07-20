@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/ministryofjustice/opg-performance-analytics/compare/v1.1.0...v1.1.1) (2020-07-20)
+
+
+### Bug Fixes
+
+* **package.json:** update dependencies ([6f4e836](https://github.com/ministryofjustice/opg-performance-analytics/commit/6f4e83638726d82a8fd796c34f176e80a63457a6))
+
 # [1.1.0](https://github.com/ministryofjustice/opg-performance-analytics/compare/v1.0.3...v1.1.0) (2020-05-12)
 
 
