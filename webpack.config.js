@@ -8,4 +8,16 @@ module.exports = {
     path: path.resolve(__dirname, "lib"),
     libraryTarget: "commonjs2",
   },
+  module: {
+    rules: [
+      {
+        test: require.resolve("perfume.js"),
+        use: [
+          {
+            loader: "expose-loader",
+          },
+        ],
+      },
+    ],
+  },
 };
