@@ -4,6 +4,7 @@ jobs:
     working_directory: ~/repo
     docker:
       - image: circleci/node:12.9.1
+    resource_class: small
     steps:
       - checkout
       - restore_cache:
@@ -19,6 +20,7 @@ jobs:
     working_directory: ~/repo
     docker:
       - image: circleci/node:12.9.1
+    resource_class: small
     steps:
       - checkout
       - restore_cache:
@@ -46,6 +48,7 @@ jobs:
     working_directory: ~/repo
     docker:
       - image: circleci/node:12.9.1
+    resource_class: small
     steps:
       - checkout
       - restore_cache:
