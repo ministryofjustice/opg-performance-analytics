@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/repo
     docker:
-      - image: circleci/node:12.9.1
+      - image: circleci/node:14.17.4
     resource_class: small
     steps:
       - checkout
@@ -19,7 +19,7 @@ jobs:
   test:
     working_directory: ~/repo
     docker:
-      - image: circleci/node:12.9.1
+      - image: circleci/node:14.17.4
     resource_class: small
     steps:
       - checkout
@@ -47,7 +47,7 @@ jobs:
   publish:
     working_directory: ~/repo
     docker:
-      - image: circleci/node:12.9.1
+      - image: circleci/node:14.17.4
     resource_class: small
     steps:
       - checkout
